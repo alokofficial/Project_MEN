@@ -6,6 +6,8 @@ const dbConnect = require('./config/mongoose-connection')
 const ownerRouter = require('./routes/ownersRouter')
 const userRouter = require('./routes/usersRouter')
 const productRouter = require('./routes/productsRouter')
+const indexRouter = require('./routes/index')
+const doenv = require('dotenv').config()
 
 
 app.set('view engine','ejs')
@@ -17,6 +19,7 @@ app.use(express.static(path.join(__dirname,'public')))
 app.use('/owners',ownerRouter)
 app.use('/users',userRouter)
 app.use('/products',productRouter)
+app.use('/',indexRouter)
 
 app.get('/',(req,res)=>{
 	res.send('hi hello')
