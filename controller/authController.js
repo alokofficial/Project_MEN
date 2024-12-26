@@ -37,7 +37,7 @@ module.exports.loginUser = async function(req,res){
         if(isMatch){
             const token = generateToken(user)
             res.cookie('token',token)
-            res.status(200).send(user)
+            res.redirect('/shop')
 
         }
         else{
@@ -47,4 +47,8 @@ module.exports.loginUser = async function(req,res){
     }else{
         res.status(501).send('user not found')
     }
+}
+module.exports.loggedOutUser = function(req,res){
+    res.clearCookie('token')
+    res.redirect('/')
 }
