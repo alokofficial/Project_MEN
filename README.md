@@ -21,3 +21,8 @@ productModel
     textcolor:String,
     panelcolor:String,
 
+console.log(process.env.DEBUG)
+export DEBUG='development:*'
+console.log(process.env.NODE_ENV)
+export NODE_ENV=development   
+

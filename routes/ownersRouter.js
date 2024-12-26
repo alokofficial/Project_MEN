@@ -9,13 +9,13 @@ if(process.env.NODE_ENV === 'development'){
             return res.status(501).send('owner already exist')
         }
         let {fullname,email,password} = req.body
-        let newOwner = await ownerModel.create({
+        let createdOwner = await ownerModel.create({
             fullname,
             email,
             password,
         })
         
-        res.status(200).send(newOwner)
+        res.status(200).send(createdOwner)
     })
 };
 router.get('/', (req, res) => {
